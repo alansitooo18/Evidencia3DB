@@ -238,10 +238,218 @@ namespace DataBaseLibrary
             switch (opcion)
             {
                 case "1":
-                    // Implementar lógica para actualizar información de un autor
+                    menu.MostrarMenuActualizarAutor();
+                    string opcionAutor = Console.ReadLine();
+                    switch (opcionAutor)
+                    {
+                        case "1":
+                            Console.WriteLine("Ingrese el nombre del autor:");
+                            string nombreAutor = Console.ReadLine();
+                            Console.WriteLine("Ingrese el nuevo nombre del autor:");
+                            string nuevoNombre = Console.ReadLine();
+                            // Actualizar nombre de autor
+                            var autores = databaseService.GetAutoresPorNombre(nombreAutor);
+                            if (autores.Any())
+                            {
+                                foreach (var autor in autores)
+                                {
+                                    databaseService.ActualizarNombreAutor(autor.IdAutor, nuevoNombre);
+                                }
+                            }
+                            else
+                            {
+                                Console.WriteLine("No se encontraron autores con ese nombre.");
+                            }
+                            break;
+                        case "2":
+                            Console.WriteLine("Ingrese el nombre del autor:");
+                            string nombreAutorFecha = Console.ReadLine();
+                            Console.WriteLine("Ingrese la nueva fecha de nacimiento del autor:");
+                            DateTime nuevaFecha = DateTime.Parse(Console.ReadLine());
+                            // Actualizar fecha de nacimiento de autor
+                            var autoresFecha = databaseService.GetAutoresPorNombre(nombreAutorFecha);
+                            if (autoresFecha.Any())
+                            {
+                                foreach (var autor in autoresFecha)
+                                {
+                                    databaseService.ActualizarFechaNacimientoAutor(autor.IdAutor, nuevaFecha);
+                                }
+                            }
+                            else
+                            {
+                                Console.WriteLine("No se encontraron autores con esa fecha de nacimiento.");
+                            }
+                            break;
+                        case "3":
+                            Console.WriteLine("Ingrese el nombre del autor:");
+                            string nombreAutorNacionalidad = Console.ReadLine();
+                            Console.WriteLine("Ingrese la nueva nacionalidad del autor:");
+                            string nuevaNacionalidad = Console.ReadLine();
+                            // Actualizar nacionalidad de autor
+                            var autoresNacionalidad = databaseService.GetAutoresPorNombre(nombreAutorNacionalidad);
+                            if (autoresNacionalidad.Any())
+                            {
+                                foreach (var autor in autoresNacionalidad)
+                                {
+                                    databaseService.ActualizarNacionalidadAutor(autor.IdAutor, nuevaNacionalidad);
+                                }
+                            }
+                            else
+                            {
+                                Console.WriteLine("No se encontraron autores con esa nacionalidad.");
+                            }
+                            break;
+                        case "4":
+                            Console.WriteLine("Ingrese el nombre del autor:");
+                            string nombreAutorBiografia = Console.ReadLine();
+                            Console.WriteLine("Ingrese la nueva biografía del autor:");
+                            string nuevaBiografia = Console.ReadLine();
+                            // Actualizar biografía de autor
+                            var autoresBiografia = databaseService.GetAutoresPorNombre(nombreAutorBiografia);
+                            if (autoresBiografia.Any())
+                            {
+                                foreach (var autor in autoresBiografia)
+                                {
+                                    databaseService.ActualizarBiografiaAutor(autor.IdAutor, nuevaBiografia);
+                                }
+                            }
+                            else
+                            {
+                                Console.WriteLine("No se encontraron autores con esa biografía.");
+                            }
+                            break;
+                        case "5":
+                            break;
+                        default:
+                            menu.MostrarMensajeError();
+                            break;
+                    }
                     break;
                 case "2":
-                    // Implementar lógica para actualizar información de un libro
+                    menu.MostrarMenuActualizarLibro();
+                    string opcionLibro = Console.ReadLine();
+                    switch (opcionLibro)
+                    {
+                        case "1":
+                            Console.WriteLine("Ingrese el título del libro:");
+                            string tituloLibro = Console.ReadLine();
+                            Console.WriteLine("Ingrese el nuevo título del libro:");
+                            string nuevoTitulo = Console.ReadLine();
+                            // Actualizar título de un libro
+                            var libros = databaseService.GetLibrosPorTitulo(tituloLibro);
+                            if (libros.Any())
+                            {
+                                foreach (var libro in libros)
+                                {
+                                    databaseService.ActualizarTituloLibro(libro.Id, nuevoTitulo);
+                                }
+                            }
+                            else
+                            {
+                                Console.WriteLine("No se encontraron libros con ese título.");
+                            }
+                            break;
+                        case "2":
+                            Console.WriteLine("Ingrese el título del libro:");
+                            string tituloLibroGenero = Console.ReadLine();
+                            Console.WriteLine("Ingrese el nuevo género del libro:");
+                            string nuevoGenero = Console.ReadLine();
+                            // Actualizar género de un libro
+                            var librosGenero = databaseService.GetLibrosPorTitulo(tituloLibroGenero);
+                            if (librosGenero.Any())
+                            {
+                                foreach (var libro in librosGenero)
+                                {
+                                    databaseService.ActualizarGeneroLibro(libro.Id, nuevoGenero);
+                                }
+                            }
+                            else
+                            {
+                                Console.WriteLine("No se encontraron libros con ese género.");
+                            }
+                            break;
+                        case "3":
+                            Console.WriteLine("Ingrese el título del libro:");
+                            string tituloLibroAño = Console.ReadLine();
+                            Console.WriteLine("Ingrese el nuevo año de publicación del libro:");
+                            int nuevoAño = int.Parse(Console.ReadLine());
+                            // Actualizar Año de publicación de un libro
+                            var librosAño = databaseService.GetLibrosPorTitulo(tituloLibroAño);
+                            if (librosAño.Any())
+                            {
+                                foreach (var libro in librosAño)
+                                {
+                                    databaseService.ActualizarAñoPublicacionLibro(libro.Id, nuevoAño);
+                                }
+                            }
+                            else
+                            {
+                                Console.WriteLine("No se encontraron libros con ese año de publicación.");
+                            }
+                            break;
+                        case "4":
+                            Console.WriteLine("Ingrese el título del libro:");
+                            string tituloLibroISBN = Console.ReadLine();
+                            Console.WriteLine("Ingrese el nuevo ISBN del libro:");
+                            string nuevoISBN = Console.ReadLine();
+                            // Actualizar ISBN de un libro
+                            var librosISBN = databaseService.GetLibrosPorTitulo(tituloLibroISBN);
+                            if (librosISBN.Any())
+                            {
+                                foreach (var libro in librosISBN)
+                                {
+                                    databaseService.ActualizarISBNLibro(libro.Id, nuevoISBN);
+                                }
+                            }
+                            else
+                            {
+                                Console.WriteLine("No se encontraron libros con ese ISBN.");
+                            }
+                            break;
+                        case "5":
+                            Console.WriteLine("Ingrese el título del libro:");
+                            string tituloLibroEditorial = Console.ReadLine();
+                            Console.WriteLine("Ingrese la nueva editorial del libro:");
+                            string nuevaEditorial = Console.ReadLine();
+                            // Actualizar editorial de un libro
+                            var librosEditorial = databaseService.GetLibrosPorTitulo(tituloLibroEditorial);
+                            if (librosEditorial.Any())
+                            {
+                                foreach (var libro in librosEditorial)
+                                {
+                                    databaseService.ActualizarEditorialLibro(libro.Id, nuevaEditorial);
+                                }
+                            }
+                            else
+                            {
+                                Console.WriteLine("No se encontraron libros con esa editorial.");
+                            }
+                            break;
+                        case "6":
+                            Console.WriteLine("Ingrese el título del libro:");
+                            string tituloLibroResumen = Console.ReadLine();
+                            Console.WriteLine("Ingrese el nuevo resumen del libro:");
+                            string nuevoResumen = Console.ReadLine();
+                            // Actualizar resumen de un libro
+                            var librosResumen = databaseService.GetLibrosPorTitulo(tituloLibroResumen);
+                            if (librosResumen.Any())
+                            {
+                                foreach (var libro in librosResumen)
+                                {
+                                    databaseService.ActualizarResumenLibro(libro.Id, nuevoResumen);
+                                }
+                            }
+                            else
+                            {
+                                Console.WriteLine("No se encontraron libros con ese resumen.");
+                            }
+                            break;
+                        case "7":
+                            break;
+                        default:
+                            menu.MostrarMensajeError();
+                            break;
+                    }
                     break;
                 case "3":
                     break;
@@ -258,10 +466,38 @@ namespace DataBaseLibrary
             switch (opcion)
             {
                 case "1":
-                    // Implementar lógica para eliminar un autor
+                    Console.WriteLine("Ingrese el nombre del autor:");
+                    string nombreAutor = Console.ReadLine();
+                    // Eliminar un autor
+                    var autores = databaseService.GetAutoresPorNombreExacto(nombreAutor);
+                    if (autores.Any())
+                    {
+                        foreach (var autor in autores)
+                        {
+                            databaseService.EliminarAutor(autor.IdAutor);
+                        }
+                    }
+                    else
+                    {
+                        Console.WriteLine("No se encontraron autores con ese nombre.");
+                    }
                     break;
                 case "2":
-                    // Implementar lógica para eliminar un libro
+                    Console.WriteLine("Ingrese el título del libro:");
+                    string tituloLibro = Console.ReadLine();
+                    // Eliminar un libro
+                    var libros = databaseService.GetLibrosPorTituloExacto(tituloLibro);
+                    if (libros.Any())
+                    {
+                        foreach (var libro in libros)
+                        {
+                            databaseService.EliminarLibro(libro.Id);
+                        }
+                    }
+                    else
+                    {
+                        Console.WriteLine("No se encontraron libros con ese título.");
+                    }
                     break;
                 case "3":
                     break;

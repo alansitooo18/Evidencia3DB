@@ -79,6 +79,36 @@ namespace DataBaseLibrary
             Console.WriteLine("*****************************************");
         }
 
+        public void MostrarMenuActualizarAutor()
+        {
+            Console.WriteLine("*****************************************");
+            Console.WriteLine("* Menú de actualización de autor *");
+            Console.WriteLine("*****************************************");
+            Console.WriteLine("\nPor favor, seleccione una opción:\n");
+            Console.WriteLine("1. Actualizar nombre");
+            Console.WriteLine("2. Actualizar fecha de nacimiento");
+            Console.WriteLine("3. Actualizar nacionalidad");
+            Console.WriteLine("4. Actualizar biografía");
+            Console.WriteLine("5. Regresar al menú de actualización\n");
+            Console.WriteLine("*****************************************");
+        }
+
+        public void MostrarMenuActualizarLibro()
+        {
+            Console.WriteLine("*****************************************");
+            Console.WriteLine("* Menú de actualización de libro *");
+            Console.WriteLine("*****************************************");
+            Console.WriteLine("\nPor favor, seleccione una opción:\n");
+            Console.WriteLine("1. Actualizar título");
+            Console.WriteLine("2. Actualizar género");
+            Console.WriteLine("3. Actualizar año de publicación");
+            Console.WriteLine("4. Actualizar ISBN");
+            Console.WriteLine("5. Actualizar editorial");
+            Console.WriteLine("6. Actualizar resumen");
+            Console.WriteLine("7. Regresar al menú de actualización\n");
+            Console.WriteLine("*****************************************");
+        }
+
         public void MostrarMenuEliminar()
         {
             Console.WriteLine("*****************************************");

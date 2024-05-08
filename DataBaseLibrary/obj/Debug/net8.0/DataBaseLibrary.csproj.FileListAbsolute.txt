@@ -28,3 +28,4 @@
 /Users/alancruz/VS Code/Ev3/DataBaseLibrary/bin/Debug/net8.0/runtimes/win/native/mongocrypt.dll
 /Users/alancruz/VS Code/Ev3/DataBaseLibrary/obj/Debug/net8.0/DataBaseLibrary.csproj.AssemblyReference.cache
 /Users/alancruz/VS Code/Ev3/DataBaseLibrary/obj/Debug/net8.0/DataBase.484B67FD.Up2Date
+/Users/alancruz/VS Code/Ev3/DataBaseLibrary/obj/Debug/net8.0/DataBaseLibrary.sourcelink.json

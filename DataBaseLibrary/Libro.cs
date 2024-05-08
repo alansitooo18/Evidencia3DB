@@ -12,7 +12,7 @@ namespace DataBaseLibrary
         public string Genero { get; set; }
         public int AñoPublicacion { get; set; }
         public string ISBN { get; set; }
-        public int IdAutor { get; set; }
+        public int? IdAutor { get; set; }
         public string Editorial { get; set; }
         public string Resumen { get; set; }
     }

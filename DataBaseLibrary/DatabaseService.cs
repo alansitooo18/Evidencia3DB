@@ -77,5 +77,113 @@ namespace DataBaseLibrary
         {
             return collectionLibros.Find(x => x.IdAutor == idAutor).ToList();
         }
+
+        public void ActualizarNombreAutor(int idAutor, string nuevoNombre)
+        {
+            var filter = Builders<Autor>.Filter.Eq(x => x.IdAutor, idAutor);
+            var update = Builders<Autor>.Update.Set(x => x.Nombre, nuevoNombre);
+            collectionAutores.UpdateOne(filter, update);
+        }
+
+        public void ActualizarFechaNacimientoAutor(int idAutor, DateTime nuevaFecha)
+        {
+            var filter = Builders<Autor>.Filter.Eq(x => x.IdAutor, idAutor);
+            var update = Builders<Autor>.Update.Set(x => x.FechaNacimiento, nuevaFecha);
+            collectionAutores.UpdateOne(filter, update);
+        }
+
+        public void ActualizarNacionalidadAutor(int idAutor, string nuevaNacionalidad)
+        {
+            var filter = Builders<Autor>.Filter.Eq(x => x.IdAutor, idAutor);
+            var update = Builders<Autor>.Update.Set(x => x.Nacionalidad, nuevaNacionalidad);
+            collectionAutores.UpdateOne(filter, update);
+        }
+
+        public void ActualizarBiografiaAutor(int idAutor, string nuevaBiografia)
+        {
+            var filter = Builders<Autor>.Filter.Eq(x => x.IdAutor, idAutor);
+            var update = Builders<Autor>.Update.Set(x => x.Biografia, nuevaBiografia);
+            collectionAutores.UpdateOne(filter, update);
+        }
+
+        public void ActualizarTituloLibro(ObjectId idLibro, string nuevoTitulo)
+        {
+            var filter = Builders<Libro>.Filter.Eq(x => x.Id, idLibro);
+            var update = Builders<Libro>.Update.Set(x => x.Titulo, nuevoTitulo);
+            collectionLibros.UpdateOne(filter, update);
+        }
+
+        public void ActualizarGeneroLibro(ObjectId idLibro, string nuevoGenero)
+        {
+            var filter = Builders<Libro>.Filter.Eq(x => x.Id, idLibro);
+            var update = Builders<Libro>.Update.Set(x => x.Genero, nuevoGenero);
+            collectionLibros.UpdateOne(filter, update);
+        }
+
+        public void ActualizarAñoPublicacionLibro(ObjectId idLibro, int nuevoAño)
+        {
+            var filter = Builders<Libro>.Filter.Eq(x => x.Id, idLibro);
+            var update = Builders<Libro>.Update.Set(x => x.AñoPublicacion, nuevoAño);
+            collectionLibros.UpdateOne(filter, update);
+        }
+
+        public void ActualizarISBNLibro(ObjectId idLibro, string nuevoISBN)
+        {
+            var filter = Builders<Libro>.Filter.Eq(x => x.Id, idLibro);
+            var update = Builders<Libro>.Update.Set(x => x.ISBN, nuevoISBN);
+            collectionLibros.UpdateOne(filter, update);
+        }
+
+        public void ActualizarEditorialLibro(ObjectId idLibro, string nuevaEditorial)
+        {
+            var filter = Builders<Libro>.Filter.Eq(x => x.Id, idLibro);
+            var update = Builders<Libro>.Update.Set(x => x.Editorial, nuevaEditorial);
+            collectionLibros.UpdateOne(filter, update);
+        }
+
+        public void ActualizarResumenLibro(ObjectId idLibro, string nuevoResumen)
+        {
+            var filter = Builders<Libro>.Filter.Eq(x => x.Id, idLibro);
+            var update = Builders<Libro>.Update.Set(x => x.Resumen, nuevoResumen);
+            collectionLibros.UpdateOne(filter, update);
+        }
+
+        public void EliminarAutor(int idAutor)
+        {
+            // Encuentra el autor en la base de datos
+            var autor = collectionAutores.Find(x => x.IdAutor == idAutor).FirstOrDefault();
+            if (autor != null)
+            {
+                // Encuentra todos los libros asociados con este autor
+                var librosAutor = collectionLibros.Find(l => l.IdAutor == idAutor).ToList();
+
+                // Actualiza el IdAutor de estos libros a null en la base de datos
+                var update = Builders<Libro>.Update.Set(l => l.IdAutor, null);
+                foreach (var libro in librosAutor)
+                {
+                    collectionLibros.UpdateOne(Builders<Libro>.Filter.Eq("ISBN", libro.ISBN), update);
+                }
+
+                // Elimina el autor de la base de datos
+                collectionAutores.DeleteOne(x => x.IdAutor == idAutor);
+            }
+        }
+
+
+        public List<Autor> GetAutoresPorNombreExacto(string nombre)
+        {
+            // Que sea nombre exacto, no solo uno que contenga el nombre
+            return collectionAutores.Find(x => x.Nombre == nombre).ToList();
+        }
+
+        public void EliminarLibro(ObjectId idLibro)
+        {
+            collectionLibros.DeleteOne(x => x.Id == idLibro);
+        }
+
+        public List<Libro> GetLibrosPorTituloExacto(string nombre)
+        {
+            return collectionLibros.Find(x => x.Titulo == nombre).ToList();
+        }
     }
 }
