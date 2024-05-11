@@ -391,6 +391,28 @@ namespace DataBaseLibrary
                             }
                             break;
                         case "5":
+                            Console.WriteLine("Ingrese el nombre del autor:");
+                            string nombreAutorId = Console.ReadLine();
+                            var datosAutorId = databaseService.GetAutoresPorNombre(nombreAutorId).FirstOrDefault();
+                            // Id Original
+                            Console.WriteLine($"IdAutor original: {datosAutorId.IdAutor}");
+                            Console.WriteLine("Ingrese el nuevo Id del autor:");
+                            int nuevoId = int.Parse(Console.ReadLine());
+                            // Actualizar Id de autor
+                            var autoresId = databaseService.GetAutoresPorNombre(nombreAutorId);
+                            if (autoresId.Any())
+                            {
+                                foreach (var autor in autoresId)
+                                {
+                                    databaseService.ActualizarIdAutor(autor.IdAutor, nuevoId);
+                                }
+                            }
+                            else
+                            {
+                                Console.WriteLine("No se encontraron autores con ese Id.");
+                            }
+                            break;
+                        case "6":
                             break;
                         default:
                             menu.MostrarMensajeError();

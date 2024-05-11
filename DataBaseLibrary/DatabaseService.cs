@@ -116,6 +116,14 @@ namespace DataBaseLibrary
             collectionAutores.UpdateOne(filter, update);
         }
 
+        public void ActualizarIdAutor(int idAutor, int nuevoId)
+        {
+            var filter = Builders<Autor>.Filter.Eq(x => x.IdAutor, idAutor);
+            var update = Builders<Autor>.Update.Set(x => x.IdAutor, nuevoId);
+            collectionAutores.UpdateOne(filter, update);
+        }
+
+
         public void ActualizarTituloLibro(ObjectId idLibro, string nuevoTitulo)
         {
             var filter = Builders<Libro>.Filter.Eq(x => x.Id, idLibro);
