@@ -38,7 +38,8 @@ namespace DataBaseLibrary
             Console.WriteLine("\nPor favor, seleccione una opción:\n");
             Console.WriteLine("1. Buscar autores por nombre");
             Console.WriteLine("2. Buscar autores por nacionalidad");
-            Console.WriteLine("3. Regresar al menú principal\n");
+            Console.WriteLine("3. Mostrar todos los autores");
+            Console.WriteLine("4. Regresar al menú principal\n");
             Console.WriteLine("*****************************************");
         }
 

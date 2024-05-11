@@ -26,7 +26,7 @@ namespace DataBaseLibrary
                         case "1":
                             Console.WriteLine("Ingrese el nombre del autor:");
                             string nombreAutor = Console.ReadLine();
-                            // Implementar lógica para buscar autores por nombre y que no distinga entre mayúsculas y minúsculas
+                            // Buscar autores por nombre y que no distinga entre mayúsculas y minúsculas
                             var autoresNombre = databaseService.GetAutoresPorNombre(nombreAutor);
                             if (autoresNombre.Any())
                             {
@@ -47,7 +47,7 @@ namespace DataBaseLibrary
                         case "2":
                             Console.WriteLine("Ingrese la nacionalidad del autor:");
                             string nacionalidadAutor = Console.ReadLine();
-                            // Implementar lógica para buscar autores por nacionalidad
+                            // Buscar autores por nacionalidad
                             var autoresNacionalidad = databaseService.GetAutoresPorNacionalidad(nacionalidadAutor);
                             if (autoresNacionalidad.Any())
                             {
@@ -66,6 +66,25 @@ namespace DataBaseLibrary
                             }
                             break;
                         case "3":
+                            // Mostrar todos los autores
+                            var autores = databaseService.GetAutores();
+                            if (autores.Any())
+                            {
+                                foreach (var autor in autores)
+                                {
+                                    Console.WriteLine($"Nombre: {autor.Nombre}");
+                                    Console.WriteLine($"Fecha de nacimiento: {autor.FechaNacimiento}");
+                                    Console.WriteLine($"Nacionalidad: {autor.Nacionalidad}");
+                                    Console.WriteLine($"Biografía: {autor.Biografia}");
+                                    Console.WriteLine();
+                                }
+                            }
+                            else
+                            {
+                                Console.WriteLine("No se encontraron autores.");
+                            }
+                            break;
+                        case "4":
                             break;
                         default:
                             menu.MostrarMensajeError();

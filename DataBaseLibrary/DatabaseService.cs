@@ -52,6 +52,11 @@ namespace DataBaseLibrary
             return collectionAutores.Find(x => x.Nacionalidad.ToLower() == nacionalidad.ToLower()).ToList();
         }
 
+        public List<Autor> GetAutores()
+        {
+            return collectionAutores.Find(_ => true).ToList();
+        }
+
         public List<Libro> GetLibrosPorTitulo(string titulo)
         {
             return collectionLibros.Find(x => x.Titulo.ToLower().Contains(titulo.ToLower())).ToList();
