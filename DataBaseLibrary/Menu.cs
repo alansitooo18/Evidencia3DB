@@ -52,7 +52,8 @@ namespace DataBaseLibrary
             Console.WriteLine("1. Buscar libros por título");
             Console.WriteLine("2. Buscar libros por género");
             Console.WriteLine("3. Buscar libros por año de publicación");
-            Console.WriteLine("4. Regresar al menú principal\n");
+            Console.WriteLine("4. Mostrar todos los libros");
+            Console.WriteLine("5. Regresar al menú principal\n");
             Console.WriteLine("*****************************************");
         }
 

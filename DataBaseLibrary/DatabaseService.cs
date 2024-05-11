@@ -72,6 +72,11 @@ namespace DataBaseLibrary
             return collectionLibros.Find(x => x.AñoPublicacion == año).ToList();
         }
 
+        public List<Libro> GetLibros()
+        {
+            return collectionLibros.Find(_ => true).ToList();
+        }
+
         public Autor GetAutorDeLibro(ObjectId idLibro)
         {
             var libro = collectionLibros.Find(x => x.Id == idLibro).FirstOrDefault();
@@ -189,6 +194,11 @@ namespace DataBaseLibrary
         public List<Libro> GetLibrosPorTituloExacto(string nombre)
         {
             return collectionLibros.Find(x => x.Titulo == nombre).ToList();
+        }
+
+        public Autor GetAutorPorId(int idAutor)
+        {
+            return collectionAutores.Find(x => x.IdAutor == idAutor).FirstOrDefault();
         }
     }
 }

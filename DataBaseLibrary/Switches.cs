@@ -99,15 +99,17 @@ namespace DataBaseLibrary
                         case "1":
                             Console.WriteLine("Ingrese el título del libro:");
                             string tituloLibro = Console.ReadLine();
-                            // Implementar lógica para buscar libros por título
+                            // Buscar libros por título
                             var libros = databaseService.GetLibrosPorTitulo(tituloLibro);
                             if (libros.Any())
                             {
                                 foreach (var libro in libros)
                                 {
+                                    var autor = databaseService.GetAutorPorId(libro.IdAutor ?? 0);
                                     Console.WriteLine($"Título: {libro.Titulo}");
                                     Console.WriteLine($"Género: {libro.Genero}");
                                     Console.WriteLine($"Año de publicación: {libro.AñoPublicacion}");
+                                    Console.WriteLine($"Autor: {autor?.Nombre ?? "No se encontró el autor"}");
                                     Console.WriteLine($"ISBN: {libro.ISBN}");
                                     Console.WriteLine($"Editorial: {libro.Editorial}");
                                     Console.WriteLine($"Resumen: {libro.Resumen}");
@@ -122,15 +124,18 @@ namespace DataBaseLibrary
                         case "2":
                             Console.WriteLine("Ingrese el género del libro:");
                             string generoLibro = Console.ReadLine();
-                            // Implementar lógica para buscar libros por género
+                            // Buscar libros por género
                             var librosGenero = databaseService.GetLibrosPorGenero(generoLibro);
                             if (librosGenero.Any())
                             {
                                 foreach (var libro in librosGenero)
                                 {
+                                    var autor = databaseService.GetAutorPorId(libro.IdAutor ?? 0);
+
                                     Console.WriteLine($"Título: {libro.Titulo}");
                                     Console.WriteLine($"Género: {libro.Genero}");
                                     Console.WriteLine($"Año de publicación: {libro.AñoPublicacion}");
+                                    Console.WriteLine($"Autor: {autor?.Nombre ?? "No se encontró el autor"}");
                                     Console.WriteLine($"ISBN: {libro.ISBN}");
                                     Console.WriteLine($"Editorial: {libro.Editorial}");
                                     Console.WriteLine($"Resumen: {libro.Resumen}");
@@ -145,15 +150,18 @@ namespace DataBaseLibrary
                         case "3":
                             Console.WriteLine("Ingrese el año de publicación del libro:");
                             int añoLibro = int.Parse(Console.ReadLine());
-                            // Implementar lógica para buscar libros por año de publicación
+                            // Buscar libros por año de publicación
                             var librosAño = databaseService.GetLibrosPorAñoPublicacion(añoLibro);
                             if (librosAño.Any())
                             {
                                 foreach (var libro in librosAño)
                                 {
+                                    var autor = databaseService.GetAutorPorId(libro.IdAutor ?? 0);
+
                                     Console.WriteLine($"Título: {libro.Titulo}");
                                     Console.WriteLine($"Género: {libro.Genero}");
                                     Console.WriteLine($"Año de publicación: {libro.AñoPublicacion}");
+                                    Console.WriteLine($"Autor: {autor?.Nombre ?? "No se encontró el autor"}");
                                     Console.WriteLine($"ISBN: {libro.ISBN}");
                                     Console.WriteLine($"Editorial: {libro.Editorial}");
                                     Console.WriteLine($"Resumen: {libro.Resumen}");
@@ -166,6 +174,30 @@ namespace DataBaseLibrary
                             }
                             break;
                         case "4":
+                            // Mostrar todos los libros
+                            var librosResult = databaseService.GetLibros();
+                            if (librosResult.Any())
+                            {
+                                foreach (var libro in librosResult)
+                                {
+                                    var autor = databaseService.GetAutorPorId(libro.IdAutor ?? 0);
+
+                                    Console.WriteLine($"Título: {libro.Titulo}");
+                                    Console.WriteLine($"Género: {libro.Genero}");
+                                    Console.WriteLine($"Año de publicación: {libro.AñoPublicacion}");
+                                    Console.WriteLine($"Autor: {autor?.Nombre ?? "No se encontró el autor"}");
+                                    Console.WriteLine($"ISBN: {libro.ISBN}");
+                                    Console.WriteLine($"Editorial: {libro.Editorial}");
+                                    Console.WriteLine($"Resumen: {libro.Resumen}");
+                                    Console.WriteLine();
+                                }
+                            }
+                            else
+                            {
+                                Console.WriteLine("No se encontraron libros.");
+                            }
+                            break;
+                        case "5":
                             break;
                         default:
                             menu.MostrarMensajeError();
