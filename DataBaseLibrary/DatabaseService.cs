@@ -2,6 +2,8 @@ using MongoDB.Driver;
 using MongoDB.Bson;
 using System.Collections.Generic;
 using System.Linq;
+using System.Transactions;
+
 
 namespace DataBaseLibrary
 {
@@ -115,14 +117,6 @@ namespace DataBaseLibrary
             var update = Builders<Autor>.Update.Set(x => x.Biografia, nuevaBiografia);
             collectionAutores.UpdateOne(filter, update);
         }
-
-        public void ActualizarIdAutor(int idAutor, int nuevoId)
-        {
-            var filter = Builders<Autor>.Filter.Eq(x => x.IdAutor, idAutor);
-            var update = Builders<Autor>.Update.Set(x => x.IdAutor, nuevoId);
-            collectionAutores.UpdateOne(filter, update);
-        }
-
 
         public void ActualizarTituloLibro(ObjectId idLibro, string nuevoTitulo)
         {
