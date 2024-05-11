@@ -305,6 +305,9 @@ namespace DataBaseLibrary
                         case "1":
                             Console.WriteLine("Ingrese el nombre del autor:");
                             string nombreAutor = Console.ReadLine();
+                            var datosAutor = databaseService.GetAutoresPorNombre(nombreAutor).FirstOrDefault();
+                            // Nombre Original
+                            Console.WriteLine($"Nombre original: {datosAutor.Nombre}");
                             Console.WriteLine("Ingrese el nuevo nombre del autor:");
                             string nuevoNombre = Console.ReadLine();
                             // Actualizar nombre de autor
@@ -324,6 +327,9 @@ namespace DataBaseLibrary
                         case "2":
                             Console.WriteLine("Ingrese el nombre del autor:");
                             string nombreAutorFecha = Console.ReadLine();
+                            var datosAutorFecha = databaseService.GetAutoresPorNombre(nombreAutorFecha).FirstOrDefault();
+                            // Fecha de nacimiento Original
+                            Console.WriteLine($"Fecha de nacimiento original: {datosAutorFecha.FechaNacimiento}");
                             Console.WriteLine("Ingrese la nueva fecha de nacimiento del autor:");
                             DateTime nuevaFecha = DateTime.Parse(Console.ReadLine());
                             // Actualizar fecha de nacimiento de autor
@@ -343,6 +349,9 @@ namespace DataBaseLibrary
                         case "3":
                             Console.WriteLine("Ingrese el nombre del autor:");
                             string nombreAutorNacionalidad = Console.ReadLine();
+                            var datosAutorNacionalidad = databaseService.GetAutoresPorNombre(nombreAutorNacionalidad).FirstOrDefault();
+                            // Nacionalidad Original
+                            Console.WriteLine($"Nacionalidad original: {datosAutorNacionalidad.Nacionalidad}");
                             Console.WriteLine("Ingrese la nueva nacionalidad del autor:");
                             string nuevaNacionalidad = Console.ReadLine();
                             // Actualizar nacionalidad de autor
@@ -362,6 +371,9 @@ namespace DataBaseLibrary
                         case "4":
                             Console.WriteLine("Ingrese el nombre del autor:");
                             string nombreAutorBiografia = Console.ReadLine();
+                            var datosAutorBiografia = databaseService.GetAutoresPorNombre(nombreAutorBiografia).FirstOrDefault();
+                            // Biografía Original
+                            Console.WriteLine($"Biografía original: {datosAutorBiografia.Biografia}");
                             Console.WriteLine("Ingrese la nueva biografía del autor:");
                             string nuevaBiografia = Console.ReadLine();
                             // Actualizar biografía de autor
@@ -393,6 +405,9 @@ namespace DataBaseLibrary
                         case "1":
                             Console.WriteLine("Ingrese el título del libro:");
                             string tituloLibro = Console.ReadLine();
+                            var datosLibro = databaseService.GetLibrosPorTitulo(tituloLibro).FirstOrDefault();
+                            // Título Original
+                            Console.WriteLine($"Título original: {datosLibro.Titulo}");
                             Console.WriteLine("Ingrese el nuevo título del libro:");
                             string nuevoTitulo = Console.ReadLine();
                             // Actualizar título de un libro
@@ -412,6 +427,9 @@ namespace DataBaseLibrary
                         case "2":
                             Console.WriteLine("Ingrese el título del libro:");
                             string tituloLibroGenero = Console.ReadLine();
+                            var datosLibroGenero = databaseService.GetLibrosPorTitulo(tituloLibroGenero).FirstOrDefault();
+                            // Género Original
+                            Console.WriteLine($"Género original: {datosLibroGenero.Genero}");
                             Console.WriteLine("Ingrese el nuevo género del libro:");
                             string nuevoGenero = Console.ReadLine();
                             // Actualizar género de un libro
@@ -431,6 +449,9 @@ namespace DataBaseLibrary
                         case "3":
                             Console.WriteLine("Ingrese el título del libro:");
                             string tituloLibroAño = Console.ReadLine();
+                            var datosLibroAño = databaseService.GetLibrosPorTitulo(tituloLibroAño).FirstOrDefault();
+                            // Año de publicación Original
+                            Console.WriteLine($"Año de publicación original: {datosLibroAño.AñoPublicacion}");
                             Console.WriteLine("Ingrese el nuevo año de publicación del libro:");
                             int nuevoAño = int.Parse(Console.ReadLine());
                             // Actualizar Año de publicación de un libro
@@ -450,6 +471,9 @@ namespace DataBaseLibrary
                         case "4":
                             Console.WriteLine("Ingrese el título del libro:");
                             string tituloLibroISBN = Console.ReadLine();
+                            var datosLibroISBN = databaseService.GetLibrosPorTitulo(tituloLibroISBN).FirstOrDefault();
+                            // ISBN Original
+                            Console.WriteLine($"ISBN original: {datosLibroISBN.ISBN}");
                             Console.WriteLine("Ingrese el nuevo ISBN del libro:");
                             string nuevoISBN = Console.ReadLine();
                             // Actualizar ISBN de un libro
@@ -469,6 +493,9 @@ namespace DataBaseLibrary
                         case "5":
                             Console.WriteLine("Ingrese el título del libro:");
                             string tituloLibroEditorial = Console.ReadLine();
+                            var datosLibroEditorial = databaseService.GetLibrosPorTitulo(tituloLibroEditorial).FirstOrDefault();
+                            // Editorial Original
+                            Console.WriteLine($"Editorial original: {datosLibroEditorial.Editorial}");
                             Console.WriteLine("Ingrese la nueva editorial del libro:");
                             string nuevaEditorial = Console.ReadLine();
                             // Actualizar editorial de un libro
@@ -488,6 +515,9 @@ namespace DataBaseLibrary
                         case "6":
                             Console.WriteLine("Ingrese el título del libro:");
                             string tituloLibroResumen = Console.ReadLine();
+                            var datosLibroResumen = databaseService.GetLibrosPorTitulo(tituloLibroResumen).FirstOrDefault();
+                            // Resumen Original
+                            Console.WriteLine($"Resumen original: {datosLibroResumen.Resumen}");
                             Console.WriteLine("Ingrese el nuevo resumen del libro:");
                             string nuevoResumen = Console.ReadLine();
                             // Actualizar resumen de un libro

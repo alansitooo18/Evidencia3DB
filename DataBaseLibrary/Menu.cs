@@ -91,6 +91,7 @@ namespace DataBaseLibrary
             Console.WriteLine("2. Actualizar fecha de nacimiento");
             Console.WriteLine("3. Actualizar nacionalidad");
             Console.WriteLine("4. Actualizar biografía");
+            Console.WriteLine("5. Actualizar id autor");
             Console.WriteLine("5. Regresar al menú de actualización\n");
             Console.WriteLine("*****************************************");
         }
