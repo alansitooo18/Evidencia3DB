@@ -110,6 +110,7 @@ namespace DataBaseLibrary
                                     Console.WriteLine($"Género: {libro.Genero}");
                                     Console.WriteLine($"Año de publicación: {libro.AñoPublicacion}");
                                     Console.WriteLine($"Autor: {autor?.Nombre ?? "No se encontró el autor"}");
+                                    Console.WriteLine($"Id del autor: {autor?.IdAutor ?? 0}");
                                     Console.WriteLine($"ISBN: {libro.ISBN}");
                                     Console.WriteLine($"Editorial: {libro.Editorial}");
                                     Console.WriteLine($"Resumen: {libro.Resumen}");
@@ -136,6 +137,7 @@ namespace DataBaseLibrary
                                     Console.WriteLine($"Género: {libro.Genero}");
                                     Console.WriteLine($"Año de publicación: {libro.AñoPublicacion}");
                                     Console.WriteLine($"Autor: {autor?.Nombre ?? "No se encontró el autor"}");
+                                    Console.WriteLine($"Id del autor: {autor?.IdAutor ?? 0}");
                                     Console.WriteLine($"ISBN: {libro.ISBN}");
                                     Console.WriteLine($"Editorial: {libro.Editorial}");
                                     Console.WriteLine($"Resumen: {libro.Resumen}");
@@ -162,6 +164,7 @@ namespace DataBaseLibrary
                                     Console.WriteLine($"Género: {libro.Genero}");
                                     Console.WriteLine($"Año de publicación: {libro.AñoPublicacion}");
                                     Console.WriteLine($"Autor: {autor?.Nombre ?? "No se encontró el autor"}");
+                                    Console.WriteLine($"Id del autor: {autor?.IdAutor ?? 0}");
                                     Console.WriteLine($"ISBN: {libro.ISBN}");
                                     Console.WriteLine($"Editorial: {libro.Editorial}");
                                     Console.WriteLine($"Resumen: {libro.Resumen}");
@@ -186,6 +189,7 @@ namespace DataBaseLibrary
                                     Console.WriteLine($"Género: {libro.Genero}");
                                     Console.WriteLine($"Año de publicación: {libro.AñoPublicacion}");
                                     Console.WriteLine($"Autor: {autor?.Nombre ?? "No se encontró el autor"}");
+                                    Console.WriteLine($"Id del autor: {autor?.IdAutor ?? 0}");
                                     Console.WriteLine($"ISBN: {libro.ISBN}");
                                     Console.WriteLine($"Editorial: {libro.Editorial}");
                                     Console.WriteLine($"Resumen: {libro.Resumen}");
@@ -230,9 +234,13 @@ namespace DataBaseLibrary
                         {
                             foreach (var libroAutor in librosAutor)
                             {
+                                var autorLibro = databaseService.GetAutorPorId(libroAutor.IdAutor ?? 0);
+
                                 Console.WriteLine($"Título: {libroAutor.Titulo}");
                                 Console.WriteLine($"Género: {libroAutor.Genero}");
                                 Console.WriteLine($"Año de publicación: {libroAutor.AñoPublicacion}");
+                                Console.WriteLine($"Autor: {autorLibro?.Nombre ?? "No se encontró el autor"}");
+                                Console.WriteLine($"Id del autor: {autorLibro?.IdAutor ?? 0}");
                                 Console.WriteLine($"ISBN: {libroAutor.ISBN}");
                                 Console.WriteLine($"Editorial: {libroAutor.Editorial}");
                                 Console.WriteLine($"Resumen: {libroAutor.Resumen}");
@@ -260,6 +268,7 @@ namespace DataBaseLibrary
                         if (autorLibro != null)
                         {
                             Console.WriteLine($"Autor: {autorLibro.Nombre}");
+                            Console.WriteLine($"Id del autor: {autorLibro.IdAutor}");
                             Console.WriteLine($"Fecha de nacimiento: {autorLibro.FechaNacimiento}");
                             Console.WriteLine($"Nacionalidad: {autorLibro.Nacionalidad}");
                             Console.WriteLine($"Biografía: {autorLibro.Biografia}");
