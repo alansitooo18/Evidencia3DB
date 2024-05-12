@@ -15,7 +15,7 @@ namespace DataBaseLibrary
             // Conexión a la base de datos y colecciones
             var databaseService = new DatabaseService("mongodb://localhost:27017", "LibraryDB");
 
-            // Creación de siete autores
+            // Creación autores
             var autores = new List<Autor>
             {
                 new Autor { IdAutor = 1, Nombre = "Gabriel García Márquez", FechaNacimiento = new DateTime(1927, 3, 6), Nacionalidad = "Colombiano", Biografia = "Gabriel José de la Concordia García Márquez fue un escritor, guionista, editor y periodista colombiano. En 1982 recibió el Premio Nobel de Literatura." },
@@ -27,7 +27,7 @@ namespace DataBaseLibrary
                 new Autor { IdAutor = 7, Nombre = "Carlos Fuentes", FechaNacimiento = new DateTime(1928, 11, 11), Nacionalidad = "Mexicano", Biografia = "Carlos Fuentes Macías fue un escritor, guionista y diplomático mexicano. Es considerado como uno de los autores más destacados de la literatura en lengua española del siglo XX. Su obra abarca diversos géneros y registra una constante preocupación por los problemas políticos, sociales y morales de la realidad mexicana y universal." }
             };
 
-            // Creación de diez libros
+            // Creación libros
             var libros = new List<Libro>
             {
                 new Libro { Id = ObjectId.GenerateNewId(), Titulo = "Cien años de soledad", Genero = "Novela", AñoPublicacion = 1967, ISBN = "978-8437604947", IdAutor = 1, Editorial = "Editorial Sudamericana", Resumen = "La novela cuenta la historia de la familia Buendía a lo largo de siete generaciones en el pueblo ficticio de Macondo." },
@@ -42,7 +42,7 @@ namespace DataBaseLibrary
                 new Libro { Id = ObjectId.GenerateNewId(), Titulo = "El coronel no tiene quien le escriba", Genero = "Novela", AñoPublicacion = 1961, ISBN = "978-8439728280", IdAutor = 1, Editorial = "Editorial Sudamericana", Resumen = "La historia de un veterano de guerra que espera la pensión que nunca llega." }
             };
 
-            // Insertar autores en la colección Autores
+            // Insertar los datos en las coleeciones
             databaseService.InsertAutores(autores);
             databaseService.InsertLibros(libros);
 
