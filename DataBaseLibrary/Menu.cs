@@ -7,7 +7,12 @@ namespace DataBaseLibrary
         public void MostrarMenu()
         {
             Console.WriteLine("*****************************************");
-            Console.WriteLine("* Bienvenido a la base de datos de la biblioteca *");
+            Console.WriteLine(" _      _____ ____  _____            _______     __");
+            Console.WriteLine("| |    |_   _|  _ \\|  __ \\     /\\   |  __ \\ \\   / /");
+            Console.WriteLine("| |      | | | |_) | |__) |   /  \\  | |__) \\ \\_/ / ");
+            Console.WriteLine("| |      | | |  _ <|  _  /   / /\\ \\ |  _  / \\   /  ");
+            Console.WriteLine("| |____ _| |_| |_) | | \\ \\  / ____ \\| | \\ \\  | |   ");
+            Console.WriteLine("|______|_____|____/|_|  \\_\\/_/    \\_\\_|  \\_\\ |_|   ");
             Console.WriteLine("*****************************************");
             Console.WriteLine("\nPor favor, seleccione una opción:\n");
             Console.WriteLine("1. Buscar información por colección");
